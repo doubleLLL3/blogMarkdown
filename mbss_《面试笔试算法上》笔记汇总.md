@@ -19,5 +19,6 @@ isTop: false
 3.  [OJ题目讲解](https://doublelll3.ml/mbss_3_OJ%E9%A2%98%E7%9B%AE%E8%AE%B2%E8%A7%A3/)
 4.  [Leetcode题目讲解](https://doublelll3.ml/mbss_4_Leetcode%E9%A2%98%E7%9B%AE%E8%AE%B2%E8%A7%A3/)
 5.  [STL“容器”的使用与练习](https://doublelll3.ml/mbss_5_STL%E2%80%9C%E5%AE%B9%E5%99%A8%E2%80%9D%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E7%BB%83%E4%B9%A0/)
+6.  [排列组合与搜索走地图](https://doublelll3.ml/mbss_6_%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E4%B8%8E%E6%90%9C%E7%B4%A2%E8%B5%B0%E5%9C%B0%E5%9B%BE/)
 
 ## *有问题多多指点！*

@@ -38,7 +38,7 @@ isTop: false
 |头文件|stdio.h|    |
 |:----|:----|:----|
 |**⭐原型**|int printf(const char *format, ...);|输出的都是**字符**|
-|    |**返回值**，int，成功**输出的****字符数**|'\n'是一个字符|
+|    |**返回值**，int，成功**输出的字符数**|'\n'是一个字符|
 |    |参数1，format，格式控制字符串|    |
 |    |可变参数列表，**...**|**合法语句**，可以通过编译|
 
@@ -47,7 +47,7 @@ isTop: false
 |头文件|stdio.h|    |
 |:----|:----|:----|
 |**⭐原型**|int scanf(const char *format, ...);|    |
-|    |返回值，int，成功**读入的****参数个数**|**<0，不合法；≥0，合法（包括0）**|
+|    |返回值，int，成功**读入的参数个数**|**<0，不合法；≥0，合法（包括0）**|
 |    |while(scanf(...) != EOF)|-1 <=> EOF （隐藏的文件描述符）|
 
 * 键盘输入文件结束符EOF：
@@ -61,8 +61,8 @@ isTop: false
 * cpp reference 权威文档
     * 可参考[海贼宝藏](https://www.haizeix.com/)官网
 * 编码规范（more code, more bug）**谷歌**是爸爸
-    * 百度+谷歌
-    * 阿里+谷歌
+    * 百度 + 谷歌
+    * 阿里 + 谷歌
     * 降低bug率
 * 工具书（**1个月**足矣；该书为跨界编写）
 
@@ -71,9 +71,9 @@ isTop: false
 # 随堂练习
 
 *  <img src="https://i.loli.net/2020/11/16/qDJH9LtToBEUAQi.png" alt="图片" style="zoom: 50%;" />
-   *  不用while函数，可以直接使用printf的返回值
-   *  printf()嵌套
-   *  **代码**
+*  不用while函数，可以直接使用printf的返回值
+*  printf()嵌套
+*  **代码**
 
 <img src="https://i.loli.net/2020/11/16/CAle6Wok8QSX1sL.png" alt="图片"  />
 
@@ -135,7 +135,7 @@ isTop: false
 >int ret;
 >printf("%d\n", ret = 3);
 >// 输出3
-* ./a.out**> output**可以将输出放在output文件里（覆盖原文件），而不显示在终端
+* ./a.out **> output** 可以将输出放在output文件里（覆盖原文件），而不显示在终端
 
     * \>的含义是标准输出重定向
 * vim基本操作，可进行vimtutor练习，见石墨文档-[Linux下常用命令：Vim](https://shimo.im/docs/VMAPVmDmvQH2Dvqg#anchor-Bj9O)
@@ -185,22 +185,19 @@ isTop: false
 
 * n的定义在printf开头部分
 * 使用宏定义方式定义swap函数
-
-![图片](https://i.loli.net/2020/11/16/w8xvPeogXGa765Q.png)
-
-​		__typeof 获取变量类型，直接用来声明中间变量的类型
+* ![图片](https://i.loli.net/2020/11/16/w8xvPeogXGa765Q.png)
+* __typeof 获取变量类型，直接用来声明中间变量的类型
 
 * sprintf的两个参数不能一样？
     * **💡名字不能一样**？
         * 如果前后参数都用str，见下：
 
-*  <img src="https://i.loli.net/2020/11/16/CdOZpuAtceJihGV.png" alt="图片" style="zoom:80%;" />
+* <img src="https://i.loli.net/2020/11/16/CdOZpuAtceJihGV.png" alt="图片" style="zoom:80%;" />
 
-​					结果如下：其中，()里的值长度与原值一样，输出的内容()**似乎会覆盖原来的内容**
+* 结果如下：其中，()里的值长度与原值一样，输出的内容()**似乎会覆盖原来的内容**
 
-*  <img src="https://i.loli.net/2020/11/16/OPM8qEsxG9bFU2Z.png" alt="图片" style="zoom:80%;" />
+    * <img src="https://i.loli.net/2020/11/16/OPM8qEsxG9bFU2Z.png" alt="图片" style="zoom:80%;" />
 
-- 
   - 一定要用指针的方式传地址？
     - 如果直接使用变量，可以，见下：
     
@@ -233,7 +230,7 @@ isTop: false
 - 
   - 
     - 
-      - 同样，也可以使用**2>**只将错误输出重定向，见下：
+      - 同样，也可以使用 **2>** 只将错误输出重定向，见下：
 
 *  <img src="https://i.loli.net/2020/11/16/WUpR2P7C6fd94xF.png" alt="图片" style="zoom:80%;" />
 

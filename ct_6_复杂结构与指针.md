@@ -22,7 +22,14 @@ isTop: false
     * 定义结构体不占用空间
     * 各变量的累加之和
     * 但要考虑**对齐原则**
-        * 成员所占字节数的**最大值**的整数倍
+        * ① 成员所占字节数的**最大值**的整数倍
+        * ② 成员相对于结构体起始地址的**偏移**能够被其**自身大小**整除
+           * 如果不能，则在前一个成员后面补充字节
+           * 见下面示例：
+           * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210201001235880.png" alt="image-20210201001235880" style="zoom:67%;" />
+           * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/KdUtq7afmALWFliG.png" alt="img" style="zoom:67%;" />
+           * 变量a、b、c并不能在一起，b的偏移需要是4的倍数，所以b的偏移为4，c的偏移为8了
+        * 参考[结构体对齐详解](https://www.cnblogs.com/motadou/archive/2009/01/17/1558438.html)——cnblogs
         * 省空间做法：将同一类型的变量放在一起定义
     * 可以使用预定义的宏强行更改对齐的字节数
         * 参考[#pragma pack()用法](https://www.jianshu.com/p/d994731f658d)-简书

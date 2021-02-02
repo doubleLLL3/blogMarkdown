@@ -20,7 +20,7 @@ isTop: false
 |mkdir|make directory|
 |rm 文件|删除文件|
 |mv 旧路径 新路径<br>mv 旧文件名 新文件名|移动文件<br>重命名|
-|clear / ctrl + l|清屏|
+|clear 或 ctrl + l|清屏|
 
 ## 附加
 
@@ -28,8 +28,8 @@ isTop: false
 |:----|:----|
 |g++ -c  *.cpp|生成编译后的对象文件（不链接）|
 |g++ -I头文件路径 *.cpp|编译时添加头文件路径到系统库路径下|
-|./*.out**>**output|标准输出重定向|
-|./*.out**2>**output|错误输出重定向|
+|./*.out **>** output|标准输出重定向|
+|./*.out **2>** output|错误输出重定向|
 |time ./*.out |可显示代码执行时间|
 |ctrl + a|光标移到行首|
 |ctrl + e|光标移到行尾|
@@ -40,9 +40,9 @@ isTop: false
 ## Tips
 
 * 修改zsh控制台显示：用户名hz@后面隐藏主机名字，节省屏幕
-    * 在~/.vimc中，找到该行
+    * 在~/.zshrc中，找到该行
     * ![图片](https://i.loli.net/2020/11/20/NXIqYu3alOShD4R.png)
-    * 主要是删去%m
+    * 主要是删去%m，如下：
 >PROMPT="%{$fg[red]%}%n%{$reset_color%} :%{$fg[yellow]%}%1~%{$reset_color%}% $ "
 * Man手册
 # Vim
@@ -51,39 +51,44 @@ isTop: false
 
 ## 常用
 
-|esc * 2|切换到 普通模式|
+|esc * 1、2|切换到 普通模式、保存并检查语法 [普通模式下]<br>注意：<br>一般切换到普通模式按1下esc [如果按2下，在瞬间按方向键或滚动鼠标滚轮会有字符输出]<br>在普通模式下按2下保存并检查语法 [如果只按1下，同上]|
 |:----|:----|
-|i/I|切换到 插入模式/到行首|
+|i、I|切换到 插入模式、并到行首|
+|a、A|切换到 插入模式 到后一位、到行尾|
+|o、O|切换到 插入模式 并向下开启新行、向上开启新行|
 |:|切换到 命令行模式|
-|v|切换到 visual模式|
-|ctrl + v|切换到 visual块模式|
+|v、V|切换到 visual、visual line 模式<br>后者适合快速操作**整行**|
+|ctrl + v|切换到 visual block模式|
 |u|撤销 undo|
 |ctrl + r|反撤销 redo|
-|d；dd、ndd|剪切、删除（visual模式下；普通模式下某一行、某n行）|
-|y；yy、nyy|复制（visual模式下；普通模式下某一行、某n行）|
+|d；dd [D]、ndd|剪切、删除（visual模式下；普通模式下某1、n行）|
+|y；yy、nyy|复制（visual模式下；普通模式下某1、n行）|
+|ynG、dnG|复制、剪切当前行到第n行的内容|
 |p|粘贴（visual模式下；普通模式下）|
 |gg|文件头部|
 |G|文件尾部|
+|$、0、^|行尾、行首、有效行首|
 |h、j、k、l|控制光标左、下、上、右移一格|
-|:%s /old/new/g|**全局**替换字符串old为字符串new<br>范围可变，参考[Vim学习笔记 - 常用查找替换命令](https://zihengcat.github.io/2018/01/03/Vim%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%B8%B8%E7%94%A8%E6%9F%A5%E6%89%BE%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4/#%E6%9B%BF%E6%8D%A2%EF%BC%88Substitute%EF%BC%89)|
+|:%s/old/new/gc|**全局**替换字符串old为字符串new [c代表询问]<br>范围可变：%全文，i, j第i~j行<br>参考[Vim学习笔记 - 常用查找替换命令](https://zihengcat.github.io/2018/01/03/Vim%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%B8%B8%E7%94%A8%E6%9F%A5%E6%89%BE%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4/#%E6%9B%BF%E6%8D%A2%EF%BC%88Substitute%EF%BC%89)|
 |/关键词<br>enter n N|搜索关键词<br>enter定位到关键词 n向后找 N向前找|
-|【跨文件拷贝】<br>:sp/:vsp<br>:e *.*<br>yy/dd<br>ctrl + w<br>p|【跨文件拷贝】<br>切分窗口 横向/纵向<br>打开另一文件<br>在某窗口进行拷贝操作<br>切换窗口<br>粘贴|
+|【跨文件拷贝】<br>:sp、:vsp<br>:e *.*<br>yy、dd<br>ctrl + w<br>p|【跨文件拷贝】<br>切分窗口 横向、纵向<br>打开另一文件<br>在某窗口进行拷贝、剪切操作<br>切换窗口<br>粘贴|
 
 ## 附加
 
-|:set mouse=c|可使用鼠标操作，复制和粘贴对应信息|
+| :set paste、nopaste   | 开启、关闭粘贴模式<br>适合在插入(粘贴)模式下粘贴 [shift + insert] 来自windows的多行文本 |
 |:----|:----|
-|Ctrl + ]|找到光标所在位置的标签定义的地方|
-|Ctrl + o|退回原来的地方|
-|Ctrl + f|下翻一页|
-|Ctrl + b|上翻一页|
+|:set mouse=c|可使用鼠标操作，复制和粘贴对应信息|
+|shift + k|跳到标签对应的man手册|
+|ctrl + ]|找到光标所在位置的标签定义的地方 [ctags]|
+|ctrl + o<br/>ctrl + i|回到上一视图<br/>前往下一视图|
+|ctrl + f [shift + ↓]|下翻一页|
+|ctrl + b [shift + ↑]|上翻一页|
 |f5|编译C、C++|
 |f6|代码格式优化|
 |f8|调试|
-|ddkP 或<br>:m -2|向上移动一行|
-|ddp 或<br>:m +1|向下移动一行|
-|d n w|删除/剪切n个单词|
-|ctrl + o<br>ctrl + i|回到上一视图<br>前往下一视图|
+|ddkP 、<br>:m -2|将代码向上移动一行|
+|ddp 或<br>:m +1|将代码向下移动一行|
+|dnw|剪切n个单词|
 
 ## Tips
 
