@@ -69,6 +69,8 @@ isTop: false
 * [PS] 如果根结点不是黑色，染个色就完事了 [不重要]
 ### 插入调整
 
+[目标] 解决双红情况
+
 两大类情况：4 + 4 种小情况
 
 #### **情况一**
@@ -89,10 +91,10 @@ isTop: false
 **示例：LL**
 
 * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813947058-sTgoatSrurIHeM1w.png" alt="图片" style="zoom:67%;" />
-* 【特点】叔叔结点为黑色，冲突发生在LL
+* 【特点】叔叔结点为黑色，冲突发生在LL [两个红色结点在L和LL]
 * 【策略】
     * 先使用AVL树的旋转调整策略：LL [示例]、LR、RL、RR
-    * 再修改三元组的颜色：红色上浮 [红黑黑]、红色下沉 [黑红红]
+    * 再修改三元组的颜色：红色上浮 [红黑黑] or 红色下沉 [黑红红]
 * 【分析】图中<LL型失衡>，哪些结点是确定[存在+颜色]的？哪些是特例？
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813945862-bgpj3wp70QmSU46n.png" alt="图片" style="zoom:67%;" />
     * 确定 [蓝框框定]
@@ -104,17 +106,20 @@ isTop: false
     * 特例
         * 17
             * 可红
-            * 可无、可黑 [不可包括在图中，否则不满足5th条件]
+            * 可无、可黑 [但不可包括在图中，否则不满足5th条件]
 * 【图示】大右旋 + 红色上浮/下沉
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813943283-CUqmfQhXotGc2ckk.png" alt="图片" style="zoom:67%;" />
     * LL型经大右旋后，黑色结点数量变化导致不平衡👉使用 [红色上浮/下沉] 调整
 * [PS]
-    * 相对两个红色结点的旋转，不影响每条路径上的黑色结点数量
+    * 针对两个红色结点的旋转，不影响每条路径上的黑色结点数量
         * 对于小左旋、小右旋
         * 举例：[原图假设] 抓着15号结点小右旋
+        * 所以小旋不会影响平衡
     * ❗ 插入结点`x`的位置是回溯调整的中间结果，并不是直接插入后的样子
     * 包含4种小情况：LL、LR、RL、RR
 ### 删除调整
+
+[目标] 解决双黑情况
 
 三大类情况：2 + 2 + 2 种小情况
 
@@ -131,13 +136,13 @@ isTop: false
 **示例：RL**
 
 * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813940368-kGFYyWSHjxxyqoXL.png" alt="图片" style="zoom:67%;" />
-* 【特点】兄弟结点在右侧 + 其左子结点是红色，且右子结点一定是黑色
+* 【特点】兄弟结点在右侧 + 兄弟结点的左子结点是红色，且右子结点一定是黑色 [否则判断为RR型，见后]
 * 【策略】小右旋 ，原兄弟结点改成红色，新兄弟结点改成黑色，转变成RR型 [见情况三]
 * 【分析】哪些结点的颜色是确定的？[小右旋部分]
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813939242-01eDfsu0qg5bar0B.png" alt="图片" style="zoom:67%;" />
     * [参照原图，蓝框框定为确定颜色]
     * RL型 → 72、51、85
-    * 每条路径黑色结点数量相同[2个] && 51是红色 → 48、64
+    * 根为38的子树的每条路径黑色结点数量相同[2个] && 51是红色 → 48、64
 #### **情况三**
 
 **示例：RR**
@@ -182,17 +187,16 @@ isTop: false
         * 特殊情况 → 双黑结点、兄弟结点
         * 4th条件 && 兄弟结点是红色 → 父结点
         * 5th条件 && 兄弟结点是红色 → 兄弟结点的子结点 [再往后黑色结点位置不一定要连续]
-* 【转换】站在原根结点往下看，做删除调整
+* 【转换后】站在原根结点往下看，做删除调整
     * 此时，双重结点的兄弟结点一定是黑色，即可转到情况一、二、三
 # 代码演示
 
 ## 插入调整
 
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813931886-8kVPB1YWfx9LmXXG.png)
-* ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813930672-loOxqnwuQXk1ror1.png)
+* ![image-20210203112552388](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210203112552388.png)
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813929452-EiOAf8exRtPvYPff.png)
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813928184-zv0tadkRAHI5ulTp.png)
-* ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813926070-PExM75GRlezezBfr.png)
 * 根结点的手动染黑
     * 保证2nd条件：根结点为黑色
     * 什么情况下，根结点会为红色
@@ -225,7 +229,7 @@ isTop: false
 ## 删除调整
 
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813921007-uE5J2H9aZH7eASDX.png)
-* ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813918085-zAYLrYWTlhci2RIt.png)
+* ![image-20210203124255405](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210203124255405.png)
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813915086-rntp0I0FbogzAvjN.png)
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813912915-NgSXNchVhCoCaFfb.png)
 * 在插入调整代码的基础上增加
@@ -246,26 +250,38 @@ isTop: false
 
 # 随堂练习
 
-## [HZOJ-xxx](http://oj.haizeix.com/problem/590)：xxx
+## [HZOJ-65](http://oj.haizeix.com/problem/65)：海贼红黑树
+
+![image-20210203131051236](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210203131051236.png)
 
 **样例输入**
 
 ```c++
-
+1 1
+1 2
+1 3
+3 0
+2 2
+3 0
 ```
 **样例输出**
-```c++
 
+```c++
+1 1 0 0
+2 1 1 3
+3 1 0 0
+1 1 0 3
+3 0 0 0
 ```
-* 思路
-* 代码
+* 基于代码演示部分的最终代码，① 调整输入输出
+* ② 并修改插入调整中对情况一的调整策略 [偷懒->不偷懒]
+   * ![image-20210203131418887](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210203131418887.png)
+   * 将两部分代码对调，即先判断是否产生了冲突，如果有冲突，再区分情况一和情况二
 # 附加知识点
 
 * ⭐分析调整策略时，要清楚哪些点的颜色是确定的
     * 其重要性等同于AVL树的调整策略中，对树高的把握
 * 重点是思考过程！而不仅仅是调整策略
-# 思考点
-
 # Tips
 
 * 编码技能是一套独立的技能，与算法数据结构思维是相互独立的，所以不是理论知识的简单重复

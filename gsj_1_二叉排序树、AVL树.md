@@ -33,8 +33,8 @@ isTop: false
         * 度为1：把子树[孤儿子树]直接挂到其父结点上
         * 度为2：[稍麻烦]
             * 找到前驱或者后继替换原结点
-                * 前驱结点：其左子树中最大值对应的结点 [一定没有右子树，度最多为1]
-                * 后继结点：其右子树中最小值对应的结点 [一定没有左子树，度最多为1]
+                * 前驱结点：其左子树中最大值对应的结点 [该结点一定没有右子树，度最多为1]
+                * 后继结点：其右子树中最小值对应的结点 [该结点一定没有左子树，度最多为1]
                 * 【只针对度为2的结点，否则需考虑往父结点找、找到什么程度？】
             * ⭐从而转换为删除度为0或1的结点 [前驱或者后继] 问题
             * [亦可理解为一维数组的删除操作]
@@ -89,7 +89,7 @@ isTop: false
             * 两者本质也一样，前者表现为算法，后者表现为数据结构
         * [个人理解]
             * 快速排序是**一堆数**先做一次Partition，分半后继续
-            * 建树过程则是**一个数一个数**地Partition，每次都定好这个数地位置再走下一个
+            * 建树过程则是**一个数一个数**地Partition，每次都定好这个数的位置再走下一个
 ## 平衡二叉查找树—AVL树
 
 解决二叉查找树中的退化问题
@@ -109,8 +109,8 @@ isTop: false
 高度为H的BS、AVL树，所包含的结点数量在什么范围？
 
 * [二叉树通用上限：2 ^ H - 1 ]
-* <BS>    H ~ 2 ^ H - 1
-* <AVL>  low(H - 2) + low(H - 1) + 1 ~ 2 ^ H - 1
+* \<BS\>    H ~ 2 ^ H - 1
+* \<AVL\>  low(H - 2) + low(H - 1) + 1 ~ 2 ^ H - 1
     * 即1.5 ^ H ~ 2 ^ H - 1，low(H)代表高度为H的AVL树的最少结点数
     * 左边界是一个斐波那契数列
         * 其增长速度为1.618 ^ n ≈ 1.5 ^ n 【可用来预估】
@@ -166,7 +166,7 @@ isTop: false
     * 等式关系=>
         * h1 = max(h3, h4) + 2 = h2 + 1
         * [PS] |h3 - h4| <= 1
-* **<调整策略>**大右旋。结果见上图，平衡分析见下：
+* **\<调整策略\>**大右旋。结果见上图，平衡分析见下：
     * ① K1：左子树高度`h2`= 右子树高度`max(h3, h4) + 1`=`h1 -1`
     * ② K2：左子树高度`h1`= 右子树高度`h2 + 1`
     * 已平衡，且可以说是平衡得可怕
@@ -188,7 +188,7 @@ isTop: false
 
 ❗ 再次切记！判断始终发生在回溯过程中**第一次**失衡时，所以在此之前的所有子树都是平衡的
 
-* **<调整策略>**小左旋 + 大右旋。结果见下图：
+* **\<调整策略\>**小左旋 + 大右旋。结果见下图：
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813643020-2L3JY3X7DcgD3HRP.png" alt="图片" style="zoom:50%;" />
     * 先小左旋转换成LL型，再大右旋 [LL调整策略]
     * 平衡分析
@@ -213,10 +213,10 @@ isTop: false
 # 随堂练习
 
 * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813638499-WRjtxDnyIMeQQTmF.png" alt="图片" style="zoom: 67%;" />
-    * 第二个序列组成的二叉搜索树退化成了一个链表，插入顺序会影响结构
+* 第二个序列组成的二叉搜索树退化成了一个链表，插入顺序会影响结构
 * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813637515-1nH5c5reFT1t1nx9.png" alt="图片" style="zoom: 67%;" />
-    * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813636654-NloTmld9BSZv8CZd.png" alt="图片" style="zoom:50%;" />
-    * 判断失衡时，从插入结点往上一步一步回溯，有失衡就马上调整
+* <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813636654-NloTmld9BSZv8CZd.png" alt="图片" style="zoom:50%;" />
+* 判断失衡时，从插入结点往上一步一步回溯，有失衡就马上调整
 # 代码演示
 
 ## 二叉排序树
@@ -236,7 +236,7 @@ isTop: false
 * 部分结果
 * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813627887-VlDPkMFxrYHiZDKm.png" alt="图片" style="zoom: 67%;" />
 
-【附】随机生成操作的代码
+【附】随机生成输入操作的代码
 
 * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813626406-CWAWcvzHaCmcMkhP.png" alt="图片" style="zoom:67%;" />
 * 生成非等比例的操作类型
@@ -257,21 +257,6 @@ isTop: false
     * NIL是一个实际结点，可以访问
     * 【方便代码实现】
 * LL、LR以及RL、RR最后一个操作分别都是大右旋以及大左旋
-# 随堂练习
-
-## [HZOJ-xxx](http://oj.haizeix.com/problem/590)：xxx
-
-**样例输入**
-
-```c++
-
-```
-**样例输出**
-```c++
-
-```
-* 思路
-* 代码
 # 附加知识点
 
 * 分析二叉树情况时，基本都是分三种情况：左、根、右

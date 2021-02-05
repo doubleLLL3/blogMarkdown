@@ -18,6 +18,7 @@ isTop: false
 * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123103818.png" alt="图片" style="zoom:67%;" />
 * 题意理解：**幼年兔子**出生后，过一个月变成**成年兔子**，再过一个月**生下**一对幼年兔子 [即第三个月]
 * **本月数量 f(n)**= 本月成年 + 本月幼年 👇
+    * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123103903.png" alt="图片" style="zoom:50%;" />
     * 本月成年 = 上个月成年 + 上个月幼年 =**上个月数量 f(n - 1)**
     * 本月幼年 = 上个月成年 = 上上个月成年 + 上上个月幼年 =**上上个月数量 f(n - 2)**[新增兔子数量]
     * 👉$f(n) = f(n - 1) + f(n - 2)$<斐波那契数列>，f(n) 代表第n个月兔子的总数量
@@ -53,12 +54,12 @@ isTop: false
 
 ### 数字三角形问题 [引入]
 
-【动态规划的基本题】
+【动态规划的基本题】[HZOJ-43](http://oj.haizeix.com/problem/43)
 
 * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123103913.png" alt="图片" style="zoom:67%;" />
 * 记录每一行每个点可以走出的最大值
 * ① 从下往上走
-    * [首先直接由原值确定最后一行，通过最大值决策，从下往上依行得到每个点的最大值]
+    * [首先直接由原值确定最下一行的最大值，通过最大值决策，从下往上依行得到每个点对应的最大值]
     * 递推状态：$f(i, j)$代表从底边走到点$(i, j)$的最大值
     * 递推公式：$f(i,\ j) = max(f(i+1,\ j),\ f(i+1,\ j+1)) + val(i,\ j)$
         * 通过max【决策】，选择从左下角$f(i + 1, j)$或右下角$f(i + 1, j + 1)$中的一个状态【转移】，该过程又叫**状态转移过程**
@@ -196,10 +197,10 @@ isTop: false
             * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123104101.png" alt="图片" style="zoom: 50%;" />
             * 根据上图，f(n)可分为**两种**情况：1和3相同、1和3不同 [1和4肯定不同，不好划分]
                 * (Ⅰ) 1和3不同：$f(n - 1) \times 1$
-                    * 只关注前n - 1块墙壁，即f(n - 1)种方案
+                    * 此时前n - 1块墙壁有合理的涂色，即f(n - 1)种方案
                     * 又4号位只剩1种颜色选择，因为1和3不同，1和4不同，3和4也不同
                 * (Ⅱ) 1和3相同：$f(n - 2) \times2$
-                    * 1和3相同，1和2必不同，所以只关注前n - 2块墙壁，即f(n -2)种方案
+                    * 1和3相同，1和2必不同，所以此时前n - 2块墙壁有合理的涂色，即f(n -2)种方案
                     * 又4号位还剩2种颜色选择，因为1和3相同，4只要和1不同即可
             * 【答案】$f(n) = f(n - 2) \times 2 + f(n - 1)$，**等式仅在n ≥ 4时成立**
             * [延伸] 如果颜色种数为k，$f(n) = f(n - 2) \times (k -1) + f(n - 1) \times (k - 2)$
@@ -224,15 +225,15 @@ isTop: false
     * 使用上述第3种方式：$f(n) = f(n - 2) \times (k -1) + f(n - 1) \times (k - 2)\ [n ≥ 4]$
     * 【注意】根据数据规模，方案总数可能变成大整数，需利用数据结构
 * 代码
-    * ![图片](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123104130.png)
+    * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123104130.png" alt="图片" style="zoom:80%;" />
     * 【算法】利用循环，以及三个数 [需要记录3项状态f] 来回倒，先推算出f(1)、f(2)、f(3)的值
         * f(1)、f(2)、f(3)不满足通用公式 [n ≥ 4]
         * f(3)的值存在f[0]中
         * 模3的使用，让数组滚动起来
     * 【数据结构】对于大整数情况，只需更换数据结构int→BigInt
         * 将f[3]数组的类型从int改为BigInt，再创造BigInt类型、重载cout即可
-        * ![图片](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123104138.png)
-        * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123104145.png" alt="图片" style="zoom:95%;" />
+        * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123104138.png" alt="图片" style="zoom: 80%;" />
+        * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210123104145.png" alt="图片" style="zoom: 80%;" />
         * 涉及C++知识 [重载、引用等等]，不是本节的重点
         * 涉及大整数加大整数、大整数乘int型的思想，可参考《面试笔试算法上》——[大整数加法](https://doublelll3.ml/mbss_1_%E7%BC%96%E7%A8%8B%E8%83%BD%E5%8A%9B%E6%8F%90%E5%8D%87/#%E5%A4%A7%E6%95%B4%E6%95%B0%E5%8A%A0%E6%B3%95)、[大整数乘法](https://doublelll3.ml/mbss_1_%E7%BC%96%E7%A8%8B%E8%83%BD%E5%8A%9B%E6%8F%90%E5%8D%87/#%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95)
         * [PS] 程序 = 算法(效率) + 数据结构(表示能力)

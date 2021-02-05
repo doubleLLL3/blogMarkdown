@@ -10,7 +10,7 @@ isTop: false
 树状数组知识请跳转：[《面试笔试算法下》——4 树状数组](https://doublelll3.ml/mbsx_4_树状数组/)
 线段树知识请跳转：[《高级数据结构》——4 线段树](https://doublelll3.ml/gsj_4_%E7%BA%BF%E6%AE%B5%E6%A0%91/)
 
-# [HZOJ-331](http://oj.haizeix.com/problem/331)：丢失的奶牛
+# [HZOJ-331](http://oj.haizeix.com/problem/331)：迷失的奶牛
 
 Lost_cows
 
@@ -48,7 +48,7 @@ Lost_cows
         * 例如，第③④步，当前奶牛比它前面的1个奶牛编号大，当前奶牛的编号就是当前剩余可用编号中的第2大编号，即3，再去标记
     * 【问题转换】标记数组的前缀和
         * 第$k$个1对应的下标其实可以通过前缀和得到
-        * 标记数组上，第$x$[编号] 位的**前缀和，**就代表第$x$位**前面可用**编号的数量 [含自己]，即$k$[输入+1]
+        * 标记数组上，第$x$[编号] 位的**前缀和**，就代表第$x$位**前面可用**编号的数量 [含自己]，即$k$[输入+1]
         * 所以，在前缀和数组里，找**首次**出现的【$k$】值，得到对应的【$x$】下标
             * 注意首次：即标记数组第$x$位必须为1 [后面跟着的0不会增加前缀和]
     * 【结论】⭐
@@ -61,10 +61,10 @@ Lost_cows
     * 【PS】时间复杂度：$O(n\ log\ n)$
 * 代码
     * ![图片](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/Ch11wDgr4qz6JxsE.png)
-    * ![图片](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/u2bheSuxgvz3utDV.png)
+    * ![img](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/y45DmUkYTUETKcY0.png)
     * ![图片](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/zdfXdnvbtwARHFec.png)
     * 树状数组：维护标记数组，利用前缀和
-    * 查找的是首次出现的【输入+1】，对应第几位
+    * 查找的是**首次**出现的【输入+1】，对应第几位
         * 注意首次！可能有多个对应【输入+1】值的下标，因为0的存在
     * 找到后记得去标记，1->0
     * [PS] 输入是从第2位开始的
@@ -120,14 +120,14 @@ Lost_cows
         * ① 前面小于X的元素数量是$a$
         * ② 后面小于X的元素数量是$(X - 1) - a$
         * ③ 前面大于X的元素数量是$(i - 1) - a$
-        * ④ 后面大于X的元素数量是$(n - X) - (i - a - 1)$
+        * ④ 后面大于X的元素数量是$(n - X) - ((i - 1) - a)$
         * ⭐ 实际上
             * $a$等于标记数组在$X$位置之前的**前缀和**；后三个数量都可以通过$a$换算得到
             * ① × ② 得到"^"的数量，③ × ④ 得到"V"的数量
     * 【数据结构】标记数组的单点修改及前缀和查询，可以使用**树状数组**
     * 【PS】思想类似HZOJ-516：奶牛碑文——参考[题解](https://doublelll3.ml/mbss_3_OJ%E9%A2%98%E7%9B%AE%E8%AE%B2%E8%A7%A3/#hzoj-516)
-        * HZOJ-516通过判等计算数量
-        * 而本题需要判断大小关系，所以使用了标记数组的树状数组
+        * HZOJ-516可直接通过判等计算数量
+        * 而本题需要判断大小关系，所以使用了基于标记数组的树状数组
 * 代码
     * ![图片](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/mDaHKg1ni6ViP8ld.png)
     * ![图片](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/fnFefaE5RJ76IPY7.png)

@@ -37,7 +37,8 @@ isTop: false
     * 回溯，修改路径上每一个祖先结点的统计和值 [根结点到叶结点的路径]
 * **区间查询**
     * 一个点可能代表一个区间的和值，查询更快
-    * 如果不借助线段树，则需要一个一个查值
+       * 如果直接使用数组，则需要一个一个查值
+       * 如果借助前缀和数组，则单点修改非常耗时
 * ⭐线段树，其实是用来维护一维序列的高级数据结构
     * 时间复杂度 [与树高有关]
         * 单点修改：O(logN)
@@ -51,7 +52,7 @@ isTop: false
         * 所以最多需要4N个结点空间
     * 如何做区间修改？ [大小为m的区间上每一个值都做修改]
         * 基于线段树的基本操作：O(m * logN)，相当于脱了裤子放屁
-        * 在原有区间上修改即可：O(m)，比用线段树还好
+        * 而直接在原有区间上修改：O(m)，本身就比用线段树好
         * 请看进阶版：O(logN)
 * [PS] 只适用于单点修改、区间查询 【基础版】
     * 当面对区间修改的时候，基础版的线段树效率上还不如直接在一维序列上修改
@@ -62,7 +63,7 @@ isTop: false
 * Modify操作
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1609744939616-A3tRUf0BKUhBjiYr.png" alt="图片" style="zoom:67%;" />
     * ⭐懒标记：不对其子结点立即发数值，碰到结点查询 [**修改操作**/查询操作遍历时] 时才下发
-    * 类比[懒政]：皇帝 [根结点] 给百姓 [叶子结点] 发粮食，先发给上级 [子结点]，上级会先收着，等到皇帝亲自视察时才往下分发粮食
+    * 类比[懒政]：皇帝 [根结点] 给百姓 [叶子结点] 下发粮食，先发给上级 [子结点]，上级会先收着，等到皇帝亲自视察时才往下分发粮食
 * Query操作
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1609744941416-RoKM4R0LwOHF2QjV.png" alt="图片" style="zoom:67%;" />
     * 触发懒标记下发数值
@@ -101,14 +102,14 @@ isTop: false
 ```
 * 思路
     * 父结点所在区间的最大值可以由子结点得到
-        * 【线段树应用场景】父结点的相关信息可以由子结点得到
+    * 【线段树应用场景】父结点的相关信息可以由子结点得到
 * 代码
 * **① 易理解版 [有l、r]**
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1609744949943-pZvf4NBJ4Fozr9th.png" alt="图片" style="zoom:80%;" />
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1609745095675-Q6tETkIpGHihe2Ld.png" alt="图片" style="zoom:80%;" />
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1609745454647-5algtOVfn4ozwPRz.png" alt="图片" style="zoom:80%;" />
     * 使用scanf/printf读入数据或者关闭同步流，否则会超时
-    * 查询最大值操作，在缩小查询范围时不能修改查询区间，否则会有扩大查询区间的可能
+    * 查询最大值操作，在缩小查询范围时始终保持修改查询区间边界，否则会有扩大查询区间的可能
 * **② 优化版 [无l、r]**
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1609745092096-ZHIomdCS7cYi2FZX.png" alt="图片" style="zoom:80%;" />
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1609745090712-2rNvu30M8WuOxdYP.png" alt="图片" style="zoom:80%;" />
@@ -160,6 +161,7 @@ isTop: false
 ```
 * 结果如下：
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1609744244209-KUSgXBQBr9ReT7m8.png" alt="图片" style="zoom:67%;" />
+    * modify(1, 3, 2) : 1, 1, 5, 15，代表给[1, 3]区间+2，此时在1号结点 [根结点]，维护区间为[1, 5]，sum为15
     * 自行画树形图可加深理解
 # 思考点
 

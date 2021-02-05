@@ -1,6 +1,6 @@
 ---
 title: '5 字符串匹配算法（上）：BF、KMP、SUNDAY、SHIFT-AND、Hash'
-date: 2021-1-13 18:12:00
+date: 2021-01-13 18:12:00
 tags: [计算机,编程算法,海贼班]
 published: true
 hideInList: true
@@ -8,7 +8,6 @@ feature:
 isTop: false
 ---
 > 一些经典、绝伦的单模匹配算法
-[TOC]
 # 课程内容
 
 **相关定义**
@@ -120,7 +119,7 @@ isTop: false
 
 * ① 当发生失配时，观察模式串$t$末尾对应母串$s$位置的**后一位**e——**黄金对齐点位**
     * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/9H5vnhBOM9c8wqo4.png" alt="图片" style="zoom:67%;" />
-    * [注意] 不是观察失配位置后一位 <不要被图误解>
+    * [注意] 不是观察失配位置后一位 \<不要被图误解\>
 * ② 在模式串$t$中，从后向前找**第一个**e的位置
     * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/TRZA3rffJNr51GHU.png" alt="图片" style="zoom:67%;" />
     * 在倒数第2位找到e
@@ -219,7 +218,7 @@ isTop: false
         * 对于$d$数组的每一纵列可以有多位，置1
         * 即模式串的每一位可以让多个【$d$数组的元素】的对应二进制位，置为1
     * ② 之后就与模式串无关了，根据$d$数组和关键公式解决问题
-    * [PS] 这里可以看出模式串之所以叫模式串，是因为它不只是指字符串，还可以是正则表达式
+    * [PS] 这里可以看出模式串之所以叫模式串，是因为它不只是指字符串，还可以是正则表达式（也可以看作一种有相关性的多模式）
 # 代码演示
 
 ## 暴力匹配法
@@ -373,7 +372,7 @@ Yes
 * SUNDAY算法在生活中很常用，Hash匹配算法在解题中常用
 * DFA、NFA是编译原理的知识
     * 主要区别：DFA速度更快，NFA消耗内存更少
-* 参考[Difference between DFA and NFA](https://www.stechies.com/difference-between-nfa-dfa/)——Stechies
+    * 参考[Difference between DFA and NFA](https://www.stechies.com/difference-between-nfa-dfa/)——Stechies
 # Tips
 
 * 上C++之前，一定先刷完预修课
