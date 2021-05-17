@@ -96,7 +96,7 @@ isTop: false
     * 用的尖括号<>包含的gtest.h头文件
     * add2只是一个标识
     * 断言是什么？
-        * 用来捕捉程序员自己的错误，假设某情况发生，如果没发生则作相应处理，
+        * 用来捕捉程序员自己的错误：假设某情况发生，但如果没发生则作相应处理
         * ASSERT_*版本的断言失败时会产生致命失败，并结束当前函数
         * EXPECT_*版本的断言产生非致命失败，而不会中止当前函数
 * makefile
@@ -109,7 +109,7 @@ isTop: false
     * 🆗疑问
     
         * <img src="https://i.loli.net/2020/11/17/GSgNa9hce4ETYD7.png" alt="图片" style="zoom:67%;" />
-        * ①根据编译器支持的不同标准，c++11是比较低的版本了，要向下支持
+        * ①根据编译器版本设置了默认标准，c++11是比较低的版本
         * ②可能用了make install之类的操作，将头文件包含到系统库目录里了
 * 结果
 
@@ -134,7 +134,7 @@ isTop: false
 
     * 无法使用a##.##b
         * 函数名中只能是下划线、字母和数字，不能有"."！
-    * a##_haizei_##b
+    * a##\_haizei\_##b
         * 使用_haizei_或之类的特殊标识是为了防止a与b直接连接产生函数重名情况
         * 如(test, funcadd)与(testfunc, add)
     * ⭐__attribute__((constructor))
@@ -261,7 +261,7 @@ isTop: false
             * ❗ 详见下面的**报错一**和报错二
         * 参考[cpp_reference](https://en.cppreference.com/w/c/language/generic)
     * 使用typeof定义额外变量
-        * 所有运算部分通过额外变量，避免**\+\+操作**带来的多次运算
+        * 所有运算部分通过额外变量，避免+\+操作带来的多次运算
     * **报错一**（编译阶段 -c）
         * <img src="https://i.loli.net/2020/11/17/p9BsgAKfeVnX8PN.png" alt="图片" style="zoom:67%;" />
         * 对应错误写法：把TYPE(a)写在YELLOW_HL宏里
@@ -271,8 +271,7 @@ isTop: false
                 * 对main.c进行预处理，不会报错
                 * 查看上面红框②预处理后的代码，如下
                 * <img src="https://i.loli.net/2020/11/17/kGfo3P961mvRBEb.png" alt="图片" style="zoom:80%;" />
-                * 
-            * **原因**：对于宏替换后的代码，("字符串" _Generic() "字符串")在编译时报错，连接不上，因为编译器此时并不知道_Generic()是啥
+                * **原因**：对于宏替换后的代码，("字符串" _Generic() "字符串")在编译时报错，连接不上，因为编译器此时并不知道_Generic()是啥
                 * _Generic()需要在运行时才能知道结果，语法检查时字符串和莫名的东西连接，所以报错
                 * 和printf()的原型的第一个输入参数类型为const char\*没有很大关系，但是类型不匹配会报警告
                 * 看下面这个简单的例子也许就明白了：
@@ -294,6 +293,7 @@ isTop: false
 * 
 
     * 
+
         * _Generic只支持C语言（C11），不支持C++
             * 参考[如何启用_Generic关键字](https://www.thinbug.com/q/28253867)-ThinBug
         * 将所有文件后缀改为C语言的
@@ -311,7 +311,7 @@ isTop: false
 
     * <img src="https://i.loli.net/2020/11/17/eZPRaXN3FIifpys.png" alt="图片" style="zoom:67%;" />
 
-    * 
+    * 改用gcc
 
 * 输出
 
@@ -331,7 +331,7 @@ isTop: false
         * node记录下一个节点（下一个TEST的node）的地址
         * 包含链表节点的头文件haizei/linklist.h
     * haizei/linklist.h
-        * <img src="https://i.loli.net/2020/11/17/ucTPZQ6mIhn31S4.png" alt="图片" style="zoom:67%;" />
+        * ![image-20210329094033910](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210329094033910.png)
         * next指向下一个节点的地址
             * 但实际是想访问下一个TEST的func和str字段
             * 可以通过**访问下一个结构体的首地址再间接访问两个字段**来完成
@@ -344,7 +344,7 @@ isTop: false
                 * 转long整型即可得到偏移量
                     * **long**类型会根据系统位数改变其范围，对应指针大小
             * **Head宏！**
-                * 将p指针的地址转成**char \***类型
+                * 将p指针的地址转成char \*类型
                 * 这样±1是按照最小单位1字节来偏移的
                 * p是一个指针，name是指针p在结构体T中对应的字段名
     * haizei/test.c
@@ -419,7 +419,7 @@ isTop: false
     * 字符串化操作符
     * 作用：将宏定义中的传入参数名转换成用一对双引号括起来参数名字符串
     * 只能用于有传入参数的宏定义中，且必须置于**宏定义体中的参数名前**
-* [\__typeof__()、__typeof()、typeof() 的区别](https://blog.csdn.net/Qsir/article/details/86496346)-CSDN
+* [\_\_typeof\_\_()、\_\_typeof()、typeof() 的区别](https://blog.csdn.net/Qsir/article/details/86496346)-CSDN
     * 推荐使用带下划线的
 # 思考点
 
@@ -431,7 +431,7 @@ isTop: false
     
             * <img src="https://i.loli.net/2020/11/17/2uHD4BU3gSayoGX.png" alt="图片" style="zoom:67%;" />
         
-            * 对于这种情况，不要发生函数重名（a##_haizei\__##b）的情况
+            * 对于这种情况，不要发生函数重名（a##\_\_haizei\_\_##b）的情况
     * **但是**！宏不可以重定义，即不能修改之前的定义
 * 宏定义不用考虑先后顺序！&&宏嵌套问题
     * 当调用了一个宏时，直接替换宏即可
@@ -457,7 +457,7 @@ int main(){
     * 嵌套定义：#define __ToStr(x) _ToStr(x)
     * 嵌套调用：__ToStr(EarthQuake)
 * ❗free结构体的细节
-    * free(p)只能释放指针p所在的内存，而p指向的内存（不是动态分配的）无法free
+    * free(p)不会改变p变量本身的值，调用free()后它仍然会指向相同的内存空间，但是此时该内存已无效，不能被使用
         * 参考[C语言free()函数：释放动态分配的内存空间](http://c.biancheng.net/cpp/html/135.html)
     * 所有动态分配的空间都需单独释放，从结构体**里到外**释放
         * 结构体在堆空间，而结构体内也有变量在堆空间，需要先free成员变量，最后free这个结构体

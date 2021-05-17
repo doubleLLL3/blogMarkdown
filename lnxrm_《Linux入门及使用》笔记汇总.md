@@ -1,7 +1,7 @@
 ---
 title: '《Linux入门及使用》笔记汇总'
 date: 2020-12-10 13:00:00
-tags: [计算机,Linux,海贼班,笔记专辑]
+tags: [计算机,操作系统,Linux,海贼班,笔记专辑]
 published: true
 hideInList: false
 feature: 
@@ -24,8 +24,11 @@ isTop: false
 8.  [文件与目录、AWK](https://doublelll3.ml/lnxrm_8_%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E3%80%81AWK/)
 9.  [数据提取、软硬连接、线性筛、SED](https://doublelll3.ml/lnxrm_9_%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96%E3%80%81%E8%BD%AF%E7%A1%AC%E8%BF%9E%E6%8E%A5%E3%80%81%E7%BA%BF%E6%80%A7%E7%AD%9B%E3%80%81SED/)
 10.  [复习总结](https://doublelll3.ml/lnxrm_10_《Linux入门及使用》复习总结/)🔚
-11.  [[Task001] SSH连接Linux后的友好显示](https://doublelll3.ml/lnxrm_%E5%9B%9E%E2%80%9C%E5%AE%B6%E2%80%9D%E9%97%AE%E5%80%99_shell%E7%8E%AF%E5%A2%83%E7%9A%84%E7%86%9F%E6%82%89%E4%B8%8E%E4%BD%BF%E2%BD%A4/)
-12.  [[AutoTask001] SSH免密登录的实现和本质思考](https://doublelll3.ml/lnxrm_SSH免密登录的实现和本质思考/)
-13.  [[AutoTask002] 文件特殊权限的常用场景](https://doublelll3.ml/lnxrm_文件特殊权限的常用场景/)
+
+---
+
+1.  [[Task001] SSH连接Linux后的友好显示](https://doublelll3.ml/lnxrm_%E5%9B%9E%E2%80%9C%E5%AE%B6%E2%80%9D%E9%97%AE%E5%80%99_shell%E7%8E%AF%E5%A2%83%E7%9A%84%E7%86%9F%E6%82%89%E4%B8%8E%E4%BD%BF%E2%BD%A4/)
+2.  [[AutoTask001] SSH免密登录的实现和本质思考](https://doublelll3.ml/lnxrm_SSH免密登录的实现和本质思考/)
+3.  [[AutoTask002] 文件特殊权限的常用场景](https://doublelll3.ml/lnxrm_文件特殊权限的常用场景/)
 
 ## *有问题多多指点！*

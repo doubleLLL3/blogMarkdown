@@ -643,16 +643,6 @@ public:
     }
 };
 ```
-# [LC-xxx](https://leetcode-cn.com/problems/reverse-integer/)：xxx
-
-
-
-* 思路
-* 代码
-```
-
-```
-
 ---
 
 

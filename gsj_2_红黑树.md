@@ -48,7 +48,7 @@ isTop: false
 
 * 向下看一层
 * 发生的前提
-    * 删除黑色
+    * 删除黑色 [参考二叉排序树的删除]
         * 度为0⭐：特例 [NIL起作用了]
             * 会产生一个双重黑的NIL结点
             * 触发删除调整
@@ -121,7 +121,7 @@ isTop: false
 
 [目标] 解决双黑情况
 
-三大类情况：2 + 2 + 2 种小情况
+两大类情况：兄弟结点为黑色 [2 + 2 + 2种小情况]、兄弟结点为红色 [特殊情况]
 
 #### 情况一
 
@@ -136,6 +136,7 @@ isTop: false
 **示例：RL**
 
 * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813940368-kGFYyWSHjxxyqoXL.png" alt="图片" style="zoom:67%;" />
+* [注意观察双黑结点x的位置，关注38为根结点的子树]
 * 【特点】兄弟结点在右侧 + 兄弟结点的左子结点是红色，且右子结点一定是黑色 [否则判断为RR型，见后]
 * 【策略】小右旋 ，原兄弟结点改成红色，新兄弟结点改成黑色，转变成RR型 [见情况三]
 * 【分析】哪些结点的颜色是确定的？[小右旋部分]
@@ -148,6 +149,7 @@ isTop: false
 **示例：RR**
 
 * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813937173-LQiywGkorfGDyeMX.png" alt="图片" style="zoom:67%;" />
+* [注意观察双黑结点x的位置，关注38为根结点的子树]
 * 【特点】兄弟结点在右侧 + 其右子结点是红色 [左子结点不做要求]
 * 【策略】大左旋，新根结点等于原根结点 [双黑结点的父结点] 的颜色，两个新的子结点改为黑色，双黑结点减少1重黑 [此顺序无讲究]
 * 【分析】哪些结点的颜色是确定的？
@@ -162,7 +164,9 @@ isTop: false
     * ① [2个] 如果38本来是红色 → 51改为红色，72改为黑色
     * ② [3个] 如果38本来是黑色 → 72改为黑色
     * 【通用方式】新根结点等于原根的颜色，新的子结点都改为黑色
-        * 黑红红👉红黑黑 (或者) 黑黑红👉黑黑黑
+        * 黑红红👉红黑黑
+        * (或者)
+        * 黑黑红👉黑黑黑
 * 【思考2】为什么要通过左旋解决双黑？
     * 大左旋后，可以让双黑所在路径上多一个黑结点 [51的加入]，所以双黑可以减一
         * 否则，平白无故的给双黑减一，在哪里可以保证给路径上黑色结点数量加一呢
@@ -187,7 +191,7 @@ isTop: false
         * 特殊情况 → 双黑结点、兄弟结点
         * 4th条件 && 兄弟结点是红色 → 父结点
         * 5th条件 && 兄弟结点是红色 → 兄弟结点的子结点 [再往后黑色结点位置不一定要连续]
-* 【转换后】站在原根结点往下看，做删除调整
+* 【转换后】站在**原**根结点往下看，做删除调整
     * 此时，双重结点的兄弟结点一定是黑色，即可转到情况一、二、三
 # 代码演示
 
@@ -196,7 +200,7 @@ isTop: false
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813931886-8kVPB1YWfx9LmXXG.png)
 * ![image-20210203112552388](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210203112552388.png)
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813929452-EiOAf8exRtPvYPff.png)
-* ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813928184-zv0tadkRAHI5ulTp.png)
+* ![image-20210205170308017](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210205170308017.png)
 * 根结点的手动染黑
     * 保证2nd条件：根结点为黑色
     * 什么情况下，根结点会为红色
@@ -231,7 +235,7 @@ isTop: false
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813921007-uE5J2H9aZH7eASDX.png)
 * ![image-20210203124255405](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210203124255405.png)
 * ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813915086-rntp0I0FbogzAvjN.png)
-* ![图片](https://gitee.com/doubleL3/blog-imgs/raw/master/img/1608813912915-NgSXNchVhCoCaFfb.png)
+* ![image-20210205170450468](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210205170450468.png)
 * 在插入调整代码的基础上增加
 * 删除调整情况分为【无双黑子结点】+【有双黑子结点 [特殊情况 + 三种情况 (兄弟结点无 / 有红孩子 <LR、LL、RL、RR>)]】
 * 情况二、三，记得解决双黑问题，顺序无讲究
@@ -250,7 +254,7 @@ isTop: false
 
 # 随堂练习
 
-## [HZOJ-65](http://oj.haizeix.com/problem/65)：海贼红黑树
+## [HZOJ-64](http://oj.haizeix.com/problem/64)：海贼红黑树
 
 ![image-20210203131051236](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/image-20210203131051236.png)
 

@@ -1,7 +1,7 @@
 ---
 title: '4 高级进程管理'
 date: 2021-01-14 18:00:00
-tags: [计算机,Linux,海贼班]
+tags: [计算机,操作系统,Linux,网络系统,海贼班]
 published: true
 hideInList: true
 feature: 

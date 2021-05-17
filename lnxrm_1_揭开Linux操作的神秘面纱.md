@@ -1,7 +1,7 @@
 ---
 title: '1 揭开Linux操作的神秘面纱'
 date: 2020-11-18 18:00:00
-tags: [计算机,Linux,海贼班]
+tags: [计算机,操作系统,Linux,海贼班]
 published: true
 hideInList: true
 feature: 

@@ -1,7 +1,7 @@
 ---
 title: 'Linux中ls -al的手动实现'
 date: 2021-01-14 10:00:00
-tags: [计算机,Linux,海贼班]
+tags: [计算机,操作系统,Linux,网络系统,海贼班]
 published: true
 hideInList: false
 feature: 
@@ -206,7 +206,7 @@ strcpy(gname, getgrgid(st.st_gid)->gr_name);  // 5. 获取文件所属组名称
 * scandir完成了opendir和readdir两步工作，所以将opendir与readdir替换为sancdir即可，后面同样是将d_name给lstat使用
 * 效果如下
     * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/1610595284725-mXTuTCOqIrT5Q5Ot.png" alt="图片" style="zoom:67%;" />
-    * 排序规则稍有区别，接下俩控制颜色和显示软连接指向
+    * 排序规则稍有区别，接下来控制颜色和显示软连接指向
 ## 颜色控制
 
 * 详见文末完整代码 [颜色宏见head.h]

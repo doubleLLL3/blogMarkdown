@@ -1,7 +1,7 @@
 ---
 title: '9 数据提取、软硬连接、线性筛、SED'
 date: 2020-12-06 18:00:00
-tags: [计算机,Linux,海贼班]
+tags: [计算机,操作系统,Linux,海贼班]
 published: true
 hideInList: true
 feature: 

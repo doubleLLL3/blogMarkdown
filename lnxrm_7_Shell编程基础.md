@@ -1,7 +1,7 @@
 ---
 title: '7 Shell编程基础'
 date: 2020-11-29 19:00:00
-tags: [计算机,Linux,海贼班]
+tags: [计算机,操作系统,Linux,海贼班]
 published: true
 hideInList: true
 feature: 
@@ -32,7 +32,7 @@ PATH=${PATH}:path  # 变量后接字符串，可以直接拼接字符串
 * 不需要定义变量类型【弱类型语言】
     * 如a=123可以是字符串，也可以是整数
 * ":a"有特殊含义
-    * <img src="https://gitee.com/doubleL3/blog-imgs/raw/master/img/image-20201215182921590.png" alt="image-20201215182921590" style="zoom:67%;" />
+    * ![img](https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/H1dGE64EnuA76FxC.png)
     * 可用双引号包住a，如a=\$a:"a"或a=\$a":a"，得到a=123:a
 ### 特殊变量
 
@@ -137,7 +137,7 @@ do——done、if——then——fi、case——esac
 * 同样适用test表达式
 * 初始化num变量，否则
     * 第一次echo \$num时，\$num是空值，表现为空行
-    * 当遇到后面的+1时，系统判定它为整数类型，就当做整数用
+    * 当遇到后面的+1时，系统判定它为整数类型，才当做整数用
 
 **until**
 
@@ -230,7 +230,7 @@ do——done、if——then——fi、case——esac
 * ⭐在Shell中，变量还未定义时，其值为空，echo输出表现为空行
 * ⭐空格问题【严格】
     * 赋值语句：=左右不能有空格
-    * TEST表达式：[[  ]]两端必须有空格
+    * TEST表达式相关：[[  ]]两端必须有空格
 * 对于变量名i，如果想将\$i与\_i拼接，用\$i\_i，会去找变量i\_i，所以要用${i}\_i
 # Tips
 

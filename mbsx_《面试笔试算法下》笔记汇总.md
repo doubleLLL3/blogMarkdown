@@ -17,7 +17,8 @@ isTop: false
 1.  [从递推到动态规划（上）](https://doublelll3.ml/mbsx_1_从递推到动态规划（上）/)
 2.  [从递推到动态规划（下）](https://doublelll3.ml/mbsx_2_从递推到动态规划（下）/)
 3.  [单调队列与单调栈](https://doublelll3.ml/mbsx_3_单调队列与单调栈/)
-4.  [树状数组](https://doublelll3.ml/mbsx_4_树状数组/)
-5.  [树状数组、线段树练习题](https://doublelll3.ml/mbsx_5_树状数组、线段树练习/)
+4.  [线段树](https://doublelll3.ml/mbsx_4_线段树/)
+5.  [树状数组](https://doublelll3.ml/mbsx_5_树状数组/)
+6.  [树状数组、线段树练习题](https://doublelll3.ml/mbsx_6_树状数组、线段树练习/)
 
 ## *有问题多多指点！*

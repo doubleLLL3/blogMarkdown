@@ -1,7 +1,7 @@
 ---
 title: '5 基本系统'
 date: 2020-11-27 18:00:00
-tags: [计算机,Linux,海贼班]
+tags: [计算机,操作系统,Linux,海贼班]
 published: true
 hideInList: true
 feature: 

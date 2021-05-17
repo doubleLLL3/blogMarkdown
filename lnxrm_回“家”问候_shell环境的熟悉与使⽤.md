@@ -1,7 +1,7 @@
 ---
 title: '回”家“问候 -- SSH连接Linux后的友好显示'
 date: 2020-12-04 09:12:00
-tags: [计算机,Linux,海贼班]
+tags: [计算机,操作系统,Linux,海贼班]
 published: true
 hideInList: false
 feature: 

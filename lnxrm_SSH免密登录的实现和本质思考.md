@@ -1,7 +1,7 @@
 ---
 title: 'SSH免密登录的实现和本质思考'
 date: 2020-12-14 16:00:00
-tags: [计算机,Linux,海贼班]
+tags: [计算机,操作系统,Linux,海贼班]
 published: true
 hideInList: false
 feature: 

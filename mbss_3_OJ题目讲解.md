@@ -91,7 +91,7 @@ ABCDEFGIKJUMNBZZ
     * <img src="https://i.loli.net/2020/11/19/Iflu1rka3BQ5syg.png" alt="图片" style="zoom:67%;" />
     * s[i]为\0时停止
     * last初始为-1，可以在找到第一个元音时，不计算距离，只更新last
-# [ZOJ-479](http://oj.haizeix.com/problem/479)：乒乓球
+# [HZOJ-479](http://oj.haizeix.com/problem/479)：乒乓球
 
 ![图片](https://i.loli.net/2020/11/19/XLuGDeBpxOI3JN8.png)
 
@@ -558,22 +558,6 @@ COOWWW
     * <img src="https://i.loli.net/2020/11/19/9StCD5q4NKbp3Ox.png" alt="图片" style="zoom:67%;" />
     * 换个角度枚举，很巧妙
     * 一个数可由数字组成、数字长度、数字位置决定
-# [HZOJ-xxx](http://oj.haizeix.com/problem/513)：xxx
-
-
-
-**样例输入**
-
-```
-
-```
-**样例输出**
-```
-
-```
-* 思路
-* 代码
-
 ---
 
 

@@ -48,7 +48,7 @@ isTop: false
     * 返回值 (*函数名)(参数类型列表)
 * 应用
     * 实现分段函数，如上图
-    * [欧拉题库](https://projecteuler.net/recent)PE-45<img src="https://i.loli.net/2020/11/16/LKIySsYUojd9k8F.png" alt="图片" style="zoom: 67%;" />
+    * [欧拉题库](https://projecteuler.net/recent)：[EP-45](https://projecteuler.net/problem=45)<img src="https://i.loli.net/2020/11/16/LKIySsYUojd9k8F.png" alt="图片" style="zoom: 67%;" />
     * 找40755后，同时是三角形数、五边形数、六边形数的数字
       
         * 即找下一个三角形数，也满足五边形、六边形数字条件
@@ -58,7 +58,7 @@ isTop: false
     * **代码**
     * <img src="https://i.loli.net/2020/11/16/GMwNeW1otX8bZcD.png" alt="图片" style="zoom:67%;" />
 
-### **⭐该题亮点很多，主要注意6个关键**
+### **⭐EP-45亮点很多，主要注意6个关键**
 
 1. 二分查找的不一定是数组，有**映射关系**的单调序列即可
    2. 根据序列特点调整了区间头、尾
@@ -186,7 +186,7 @@ isTop: false
      * 
           * va_start：定位到变参列表第一参数的位置
 
->​				va_star(arg, n);  // n为变参列表的前一个变量
+>​				va_start(arg, n);  // n为变参列表的前一个变量
 * 
   * 
     * va_arg：返回下一个类型匹配的表达式
@@ -224,9 +224,9 @@ isTop: false
 2. 输出字符串功能："hello world"，并有返回成功打印字符数的功能
 
 * <img src="https://i.loli.net/2020/11/16/lYmf4ACihZUagK3.png" alt="图片" style="zoom:80%;" />
-* 系统会自动给字符串末尾加**'\0'**，其对应十进制值为0；eg. 'a'→97
+* 系统会自动给字符串末尾加'\0'，其对应十进制值为0；eg. 'a'→97
 * const修饰符是为了让传入的**字符串字面量**不被修改，也不能被修改
-    * 在C中不会警告，但在C++中会报警告，如下：
+    * 不加的话，在C中不会警告，但在C++中会报警告，如下：
 
     * <img src="https://i.loli.net/2020/11/16/L9oQlPAKTpDNjbn.png" alt="图片" style="zoom:80%;" />
       
@@ -272,7 +272,7 @@ isTop: false
 * <img src="https://i.loli.net/2020/11/16/ylMj7kSoLbeP1Of.png" alt="图片" style="zoom:80%;" />
 
 * digit--时，输出数字1000时，会多一位
-    * --digit则会陷入死循环，无限循环输出0
+    * --digit则可能陷入死循环，无限循环输出0
         * 因为输入为0时，记录的数字位数为0（见下），--digit就变成了-1
 * 第一个while循环计算0的位数时，为0，有误！
 

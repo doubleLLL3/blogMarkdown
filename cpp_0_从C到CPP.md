@@ -13,7 +13,7 @@ isTop: false
 ## C++的语言特性
 
 * 【头文件】是C语言的3倍
-* 除了面向过程编程，还额外添加了3种【编程泛式】
+* 除了面向过程编程，还额外添加了3种【编程范式】
     * 面向对象编程：类和对象
     * 泛型编程：模板，开发一个函数，相当于开发一百个函数
     * 函数式编程：Lamda
@@ -126,8 +126,8 @@ queue、stack、string、unordered_map、map...
     * 解法2：nth_element方法
         * <img src="https://cdn.jsdelivr.net/gh/doubleLLL3/blogImgs@main/img/20210125113903.png" alt="图片" style="zoom: 67%;" />
         * nth_element
-            * 基于快速选择算法——[知乎](https://zhuanlan.zhihu.com/p/64627590)，基于快速排序的Partition过程，但不会对整个序列排序
-            * 执行完后，【第k位放置着排名第k位的元素】❗
+            * 基于[快速选择算法](https://zhuanlan.zhihu.com/p/64627590)——知乎：借鉴快速排序的Partition过程，但不会对整个序列排序
+            * 执行完后，【第k位放置着从小到大排名第k位的元素】❗
     * 比较
         * 解法1：完全排序
         * 解法2：不完全排序，直接得到第k位

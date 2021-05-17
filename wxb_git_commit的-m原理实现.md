@@ -1,7 +1,7 @@
 ---
 title: 'git commit的-m原理实现'
 date: 2021-01-17 18:00:00
-tags: [计算机,Linux,海贼班]
+tags: [计算机,操作系统,Linux,网络系统,海贼班]
 published: true
 hideInList: false
 feature: 
@@ -121,6 +121,7 @@ void input_msg() {
         wait(&status);  // 监控子进程状态
         // 父进程提示vim出错
         if (WEXITSTATUS(status)) printf("vim error!\n");
+        else printf("input msg completed!\n");
     }
     return ;
 }

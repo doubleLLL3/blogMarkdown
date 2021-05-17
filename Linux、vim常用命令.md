@@ -43,7 +43,7 @@ isTop: false
     * 在~/.zshrc中，找到该行
     * ![图片](https://i.loli.net/2020/11/20/NXIqYu3alOShD4R.png)
     * 主要是删去%m，如下：
->PROMPT="%{$fg[red]%}%n%{$reset_color%} :%{$fg[yellow]%}%1~%{$reset_color%}% $ "
+>PROMPT="%{\$fg[red]%}%n%{​\$reset_color%} :%{\$fg[yellow]%}%1~%{\$reset_color%}% \$ "
 * Man手册
 # Vim
 
@@ -72,6 +72,8 @@ isTop: false
 |:%s/old/new/gc|**全局**替换字符串old为字符串new [c代表询问]<br>范围可变：%全文，i, j第i~j行<br>参考[Vim学习笔记 - 常用查找替换命令](https://zihengcat.github.io/2018/01/03/Vim%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%B8%B8%E7%94%A8%E6%9F%A5%E6%89%BE%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4/#%E6%9B%BF%E6%8D%A2%EF%BC%88Substitute%EF%BC%89)|
 |/关键词<br>enter n N|搜索关键词<br>enter定位到关键词 n向后找 N向前找|
 |【跨文件拷贝】<br>:sp、:vsp<br>:e *.*<br>yy、dd<br>ctrl + w<br>p|【跨文件拷贝】<br>切分窗口 横向、纵向<br>打开另一文件<br>在某窗口进行拷贝、剪切操作<br>切换窗口<br>粘贴|
+|【在某列快速插入相同字符】<br/>ctrl + v<br/>上下左右<br/>I (大写i)<br/>输入字符<br/>esc * 2|【在某列快速插入相同字符】<br/>切换到 visual block 模式<br/>选中要在前面插入字符的某列<br/>切换到 插入模式，并到行首<br/>输入字符<br/>生效|
+|【快速缩进】<br/>v / V / ctrl + v<br/>上下<br/>> / < (shift + , / .)|【快速缩进】<br/>切换到任意visual模式<br/>选中要缩进的行<br/>缩进 / 取消缩进 （还可以使用2>>快速缩进两次）|
 
 ## 附加
 
